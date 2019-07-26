@@ -142,21 +142,25 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 
 DATABASES = {
     "default": {
-        # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        # DB name or path to database file if using sqlite3.
         "NAME": "myproject",
-        # Not used with sqlite3.
-        "USER": "myuser",
-        # Not used with sqlite3.
-        "PASSWORD": "mypassword",
-        # Set to empty string for localhost. Not used with sqlite3.
-        "HOST": "",
-        # Set to empty string for default. Not used with sqlite3.
-        "PORT": "",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "localhost",
     }
 }
 
+SECRET_KEY = 'g+0fc66)dd(1p3m&vs5)x3(_@*v50*o=a%88_7(_3sfnq00u!j'
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
 
 #########
 # PATHS #
